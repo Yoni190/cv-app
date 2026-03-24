@@ -5,7 +5,8 @@ const Education = () => {
 
     const [schoolName, setSchoolName] = useState('')
     const [studyTitle, setStudyTitle] = useState('')
-    const [studyDate, setStudyDate] = useState(currentDate)
+    const [startDate, setStartDate] = useState(currentDate)
+    const [endDate, setEndDate] = useState(currentDate)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -33,13 +34,22 @@ const Education = () => {
                 value={studyTitle}
                 onChange={(e) => setStudyTitle(e.target.value)}
                 required />
-            <label htmlFor="study-date">Date of Study</label>
+            <label htmlFor="start-date">Start Date</label>
             <input
                 type="date"
-                name="study-date"
-                id="study-date"
-                value={studyDate}
-                onChange={(e) => setStudyDate(e.target.value)}
+                name="start-date"
+                id="start-date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                required />
+
+            <label htmlFor="end-date">End Date</label>
+            <input
+                type="date"
+                name="end-date"
+                id="end-date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
                 required />
             <button type='submit'>Submit</button>
         </form>
