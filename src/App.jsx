@@ -22,8 +22,8 @@ function App() {
           id: crypto.randomUUID(),
           schoolName: '',
           studyTitle: '',
-          startDate: currentDate,
-          endDate: currentDate
+          startDate: '',
+          endDate: ''
       }])
 
   const [practicalData, setPracticalData] = useState([
@@ -32,8 +32,8 @@ function App() {
             companyName: '',
             positionTitle: '',
             responsibilities: '',
-            startDate: currentDate,
-            endDate: currentDate
+            startDate: '',
+            endDate: ''
         }
     ])
 
