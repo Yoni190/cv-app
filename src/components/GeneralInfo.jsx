@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 
 const GeneralInfo = () => {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
+
+    const [generalData, setGeneralData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: ''
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(firstName, lastName, email, phone)
+        console.log(generalData)
     }
   return (
     <div>
@@ -19,8 +22,8 @@ const GeneralInfo = () => {
                 type="text"
                 name="f_name"
                 id="f_name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={generalData.firstName}
+                onChange={(e) => setGeneralData({...generalData, firstName: e.target.value})}
                 required/>
 
             <label htmlFor="l_name">Last Name</label>
@@ -28,8 +31,8 @@ const GeneralInfo = () => {
                 type="text"
                 name="l_name"
                 id="l_name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={generalData.lastName}
+                onChange={(e) => setGeneralData({...generalData, lastName: e.target.value})}
                 required/>
 
             <label htmlFor="email">Email</label>
@@ -37,8 +40,8 @@ const GeneralInfo = () => {
                 type="email"
                 name="email"
                 id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={generalData.email}
+                onChange={(e) => setGeneralData({...generalData, email: e.target.value})}
                 required/>
 
             <label htmlFor="phone">Phone number</label>
@@ -46,8 +49,8 @@ const GeneralInfo = () => {
                 type="tel"
                 name="phone"
                 id="phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                value={generalData.phone}
+                onChange={(e) => setGeneralData({...generalData, phone: e.target.value})}
                 required/>
 
             <button type='submit'>Submit</button>
