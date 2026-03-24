@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 const Practical = ({ practicalData, setPracticalData }) => {
 
-    const currentDate = new Date().toISOString().slice(0,10)
-
     const handleSubmit = (e) => {
         e.preventDefault()
         
@@ -16,8 +14,8 @@ const Practical = ({ practicalData, setPracticalData }) => {
             companyName: '',
             positionTitle: '',
             responsibilities: '',
-            startDate: currentDate,
-            endDate: currentDate
+            startDate: '',
+            endDate: ''
         }])
     }
   return (

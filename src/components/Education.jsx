@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 const Education = ({ educationData, setEducationData }) => {
-    const currentDate = new Date().toISOString().slice(0,10)
 
 
     const handleSubmit = (e) => {
@@ -16,8 +15,8 @@ const Education = ({ educationData, setEducationData }) => {
                 id: crypto.randomUUID(),
                 schoolName: '',
                 studyTitle: '',
-                startDate: currentDate,
-                endDate: currentDate
+                startDate: '',
+                endDate: ''
             }
         ])
     }
