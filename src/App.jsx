@@ -6,6 +6,7 @@ import './App.css'
 import GeneralInfo from './components/GeneralInfo'
 import Education from './components/Education'
 import Practical from './components/Practical'
+import CV from './components/CV'
 
 function App() {
   const currentDate = new Date().toISOString().slice(0,10)
@@ -41,6 +42,7 @@ function App() {
       <GeneralInfo generalData={generalData} setGeneralData={setGeneralData} />
       <Education educationData={educationData} setEducationData={setEducationData}/>
       <Practical practicalData={practicalData} setPracticalData={setPracticalData}/>
+      <CV generalData={generalData} educationData={educationData} practicalData={practicalData}/>
     </>
   )
 }
