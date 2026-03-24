@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 
-const GeneralInfo = () => {
+const GeneralInfo = ({ generalData, setGeneralData}) => {
 
-    const [generalData, setGeneralData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: ''
-    })
+   
 
     const handleSubmit = (e) => {
         e.preventDefault()

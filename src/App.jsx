@@ -8,11 +8,16 @@ import Education from './components/Education'
 import Practical from './components/Practical'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [generalData, setGeneralData] = useState({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: ''
+      })
 
   return (
     <>
-      <GeneralInfo />
+      <GeneralInfo generalData={generalData} setGeneralData={setGeneralData} />
       <Education />
       <Practical />
     </>
