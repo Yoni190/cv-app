@@ -18,10 +18,23 @@ const Education = () => {
         console.log(educationData)
     }
 
+    const addEducation = () => {
+        setEducationData([...educationData,
+            {
+                id: crypto.randomUUID(),
+                schoolName: '',
+                studyTitle: '',
+                startDate: currentDate,
+                endDate: currentDate
+            }
+        ])
+    }
+
   return (
     <div>
         <form onSubmit={handleSubmit}>
             <h1>Educational Experience</h1>
+            <button onClick={addEducation}>Add Educational Experience</button>
             {educationData.map((data) => (
                 <div key={data.id}>
                     <label htmlFor="school">School Name</label>
