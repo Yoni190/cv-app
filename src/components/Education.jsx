@@ -43,7 +43,7 @@ const Education = () => {
                         name="school"
                         id="school"
                         value={data.schoolName}
-                        onChange={(e) => setEducationData([{...data, schoolName: e.target.value}])}
+                        onChange={(e) => setEducationData(educationData.map(edData => { return edData.id === data.id ? {...edData, schoolName: e.target.value} : edData }))}
                         required />
 
                     <label htmlFor="study-title">Title of Study</label>
@@ -52,7 +52,7 @@ const Education = () => {
                         name="study-title"
                         id="study-title"
                         value={data.studyTitle}
-                        onChange={(e) => setEducationData([{...data, studyTitle: e.target.value}])}
+                        onChange={(e) => setEducationData(educationData.map(edData => { return edData.id === data.id ? {...edData, studyTitle: e.target.value} : edData }))}
                         required />
 
                         <label htmlFor="start-date">Start Date</label>
@@ -61,7 +61,7 @@ const Education = () => {
                             name="start-date"
                             id="start-date"
                             value={data.startDate}
-                            onChange={(e) => setEducationData([{...data, startDate: e.target.value}])}
+                            onChange={(e) => setEducationData(educationData.map(edData => { return edData.id === data.id ? {...edData, startDate: e.target.value} : edData }))}
                             required />
 
                             <label htmlFor="end-date">End Date</label>
@@ -70,7 +70,7 @@ const Education = () => {
                                 name="end-date"
                                 id="end-date"
                                 value={data.endDate}
-                                onChange={(e) => setEducationData([{...data, endDate: e.target.value}])}
+                                onChange={(e) => setEducationData(educationData.map(edData => { return edData.id === data.id ? {...edData, endDate: e.target.value} : edData }))}
                                 required />
                 </div>
             ))}
