@@ -14,21 +14,28 @@ const Practical = () => {
             endDate: currentDate
         }
     ])
-    const [companyName, setCompanyName] = useState('')
-    const [positionTitle, setPositionTitle] = useState('')
-    const [responsibilities, setResponsibilities] = useState('')
-    const [startDate, setStartDate] = useState('')
-    const [endDate, setEndDate] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
         
         console.log(practicalData)
     }
+
+    const addPractical = () => {
+        setPracticalData([...practicalData, {
+            id: crypto.randomUUID(),
+            companyName: '',
+            positionTitle: '',
+            responsibilities: '',
+            startDate: currentDate,
+            endDate: currentDate
+        }])
+    }
   return (
     <div>
         <form onSubmit={handleSubmit}>
             <h1>Practical Experience</h1>
+            <button onClick={addPractical}>Add Practical Experience</button>
             {practicalData.map((data) => (
                 <div key={data.id}>
                     <label htmlFor="company-name">Company Name</label>
