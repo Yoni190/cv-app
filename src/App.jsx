@@ -18,18 +18,29 @@ function App() {
       })
   
   const [educationData, setEducationData] = useState([{
-      id: crypto.randomUUID(),
-      schoolName: '',
-      studyTitle: '',
-      startDate: currentDate,
-      endDate: currentDate
-  }])
+          id: crypto.randomUUID(),
+          schoolName: '',
+          studyTitle: '',
+          startDate: currentDate,
+          endDate: currentDate
+      }])
+
+  const [practicalData, setPracticalData] = useState([
+        {
+            id: crypto.randomUUID(),
+            companyName: '',
+            positionTitle: '',
+            responsibilities: '',
+            startDate: currentDate,
+            endDate: currentDate
+        }
+    ])
 
   return (
     <>
       <GeneralInfo generalData={generalData} setGeneralData={setGeneralData} />
       <Education educationData={educationData} setEducationData={setEducationData}/>
-      <Practical />
+      <Practical practicalData={practicalData} setPracticalData={setPracticalData}/>
     </>
   )
 }

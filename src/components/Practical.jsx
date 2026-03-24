@@ -1,19 +1,8 @@
 import React, { useState } from 'react'
 
-const Practical = () => {
+const Practical = ({ practicalData, setPracticalData }) => {
 
     const currentDate = new Date().toISOString().slice(0,10)
-    
-    const [practicalData, setPracticalData] = useState([
-        {
-            id: crypto.randomUUID(),
-            companyName: '',
-            positionTitle: '',
-            responsibilities: '',
-            startDate: currentDate,
-            endDate: currentDate
-        }
-    ])
 
     const handleSubmit = (e) => {
         e.preventDefault()
