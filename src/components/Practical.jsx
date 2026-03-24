@@ -1,6 +1,19 @@
 import React, { useState } from 'react'
 
 const Practical = () => {
+
+    const currentDate = new Date().toISOString().slice(0,10)
+    
+    const [practicalData, setPracticalData] = useState([
+        {
+            id: crypto.randomUUID(),
+            companyName: '',
+            positionTitle: '',
+            responsibilities: '',
+            startDate: currentDate,
+            endDate: currentDate
+        }
+    ])
     const [companyName, setCompanyName] = useState('')
     const [positionTitle, setPositionTitle] = useState('')
     const [responsibilities, setResponsibilities] = useState('')
@@ -9,56 +22,70 @@ const Practical = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(companyName, positionTitle, responsibilities, startDate, endDate)
+        
+        console.log(practicalData)
     }
   return (
     <div>
         <form onSubmit={handleSubmit}>
             <h1>Practical Experience</h1>
-            <label htmlFor="company-name">Company Name</label>
-            <input
-                type="text"
-                name="company-name"
-                id="company-name"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-                required/>
+            {practicalData.map((data) => (
+                <div key={data.id}>
+                    <label htmlFor="company-name">Company Name</label>
+                    <input
+                        type="text"
+                        name="company-name"
+                        id="company-name"
+                        value={data.companyName}
+                        onChange={(e) => setPracticalData(practicalData.map(prData => { return prData.id === data.id ? {...prData, companyName: e.target.value} : prData }))}
+                        required/>
 
-            <label htmlFor="position-title">Position Title</label>
-            <input
-                type="text"
-                name="position-title"
-                id="position-title"
-                value={positionTitle}
-                onChange={(e) => setPositionTitle(e.target.value)}
-                required/>
+                    <label htmlFor="position-title">Position Title</label>
+                    <input
+                        type="text"
+                        name="position-title"
+                        id="position-title"
+                        value={data.positionTitle}
+                        onChange={(e) => setPracticalData(practicalData.map(prData => { return prData.id === data.id ? {...prData, positionTitle: e.target.value} : prData }))}
+                        required/>
 
-            <label htmlFor="responsibilities">Main Responsibilities</label>
-            <input
-                type="text"
-                name="responsibilities"
-                id="responsibilities"
-                value={responsibilities}
-                onChange={(e) => setResponsibilities(e.target.value)}
-                required/>
+                    <label htmlFor="responsibilities">Main Responsibilities</label>
+                    <input
+                        type="text"
+                        name="responsibilities"
+                        id="responsibilities"
+                        value={data.responsibilities}
+                        onChange={(e) => setPracticalData(practicalData.map(prData => { return prData.id === data.id ? {...prData, responsibilities: e.target.value} : prData }))}
+                        required/>
 
-            <label htmlFor="start-date">Start Date</label>
-            <input
-                type="date"
-                name="start-date"
-                id="start-date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                required/>
+                    <label htmlFor="start-date">Start Date</label>
+                    <input
+                        type="date"
+                        name="start-date"
+                        id="start-date"
+                        value={data.startDate}
+                        onChange={(e) => setPracticalData(practicalData.map(prData => { return prData.id === data.id ? {...prData, startDate: e.target.value} : prData }))}
+                        required/>
 
-            <label htmlFor="end-date">End Date</label>
-            <input
-                type="date"
-                name="end-date"
-                id="end-date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                required/>
+                    <label htmlFor="end-date">End Date</label>
+                    <input
+                        type="date"
+                        name="end-date"
+                        id="end-date"
+                        value={data.endDate}
+                        onChange={(e) => setPracticalData(practicalData.map(prData => { return prData.id === data.id ? {...prData, endDate: e.target.value} : prData }))}
+                        required/>
+                </div>
+            ))}
+            
+
+            
+
+            
+
+            
+
+            
 
             <button type='submit'>Submit</button>
         </form>
