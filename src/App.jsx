@@ -8,17 +8,27 @@ import Education from './components/Education'
 import Practical from './components/Practical'
 
 function App() {
+  const currentDate = new Date().toISOString().slice(0,10)
+
   const [generalData, setGeneralData] = useState({
           firstName: '',
           lastName: '',
           email: '',
           phone: ''
       })
+  
+  const [educationData, setEducationData] = useState([{
+      id: crypto.randomUUID(),
+      schoolName: '',
+      studyTitle: '',
+      startDate: currentDate,
+      endDate: currentDate
+  }])
 
   return (
     <>
       <GeneralInfo generalData={generalData} setGeneralData={setGeneralData} />
-      <Education />
+      <Education educationData={educationData} setEducationData={setEducationData}/>
       <Practical />
     </>
   )
