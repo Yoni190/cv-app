@@ -15,6 +15,20 @@ const CV = ({ generalData, educationData, practicalData }) => {
                 <p>{data.studyTitle} {data.startDate} {data.endDate && '-'} {data.endDate}</p>
             </div>
         ))}
+
+        <h1>{practicalData[0].companyName && 'Practical Experience'}</h1>
+        {practicalData.map((data) => (
+          <div key={data.id}>
+            <h2>{data.companyName}</h2>
+            <p>{data.positionTitle} {data.startDate} {data.endDate && '-'} {data.endDate}</p>
+            
+            <ul>
+              {data.responsibilities && (
+                <li>{data.responsibilities}</li>
+              )}
+            </ul>
+          </div>
+        ))}
         
     </div>
   )
