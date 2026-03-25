@@ -18,6 +18,26 @@ const Practical = ({ practicalData, setPracticalData }) => {
             endDate: ''
         }])
     }
+
+    const addResponsibility = (id) => {
+        setPracticalData(prev =>
+            prev.map(prData => {
+                if (prData.id === id) {
+                    return {
+                        ...prData,
+                        responsibilities: [
+                            ...prData.responsibilities,
+                            {
+                                id: crypto.randomUUID(),
+                                res: ''
+                            }
+                        ]
+                    };
+                }
+                return prData;
+            })
+        );
+    };
   return (
     <div>
         <form onSubmit={handleSubmit}>
@@ -44,7 +64,7 @@ const Practical = ({ practicalData, setPracticalData }) => {
                         required/>
 
                     <label htmlFor="responsibilities">Main Responsibilities</label>
-
+                    <button onClick={() => addResponsibility(data.id)}>Add Responsibility</button>
                         {data.responsibilities.map(res => (
                         <input
                             type="text"
