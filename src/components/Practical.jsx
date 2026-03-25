@@ -44,13 +44,33 @@ const Practical = ({ practicalData, setPracticalData }) => {
                         required/>
 
                     <label htmlFor="responsibilities">Main Responsibilities</label>
-                    <input
-                        type="text"
-                        name="responsibilities"
-                        id="responsibilities"
-                        value={data.responsibilities}
-                        onChange={(e) => setPracticalData(practicalData.map(prData => { return prData.id === data.id ? {...prData, responsibilities: e.target.value} : prData }))}
-                        required/>
+
+                        {data.responsibilities.map(res => (
+                        <input
+                            type="text"
+                            name="responsibilities"
+                            id="responsibilities"
+                            key={res.id}
+                            value={res.res}
+                            required
+
+                            onChange={(e) =>
+                                setPracticalData(practicalData.map(prData => {
+                                    if (prData.id === data.id) {
+                                        return {
+                                            ...prData,
+                                            responsibilities: prData.responsibilities.map(r =>
+                                                r.id === res.id
+                                                    ? { ...r, res: e.target.value }
+                                                    : r
+                                            )
+                                        };
+                                    }
+                                    return prData;
+                                }))
+                            }
+                        />
+                    ))}
 
                     <label htmlFor="start-date">Start Date</label>
                     <input
