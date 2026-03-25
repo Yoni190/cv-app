@@ -13,7 +13,12 @@ const Practical = ({ practicalData, setPracticalData }) => {
             id: crypto.randomUUID(),
             companyName: '',
             positionTitle: '',
-            responsibilities: '',
+            responsibilities: [
+              {
+                id: crypto.randomUUID(),
+                res: ''
+              }
+            ],
             startDate: '',
             endDate: ''
         }])
