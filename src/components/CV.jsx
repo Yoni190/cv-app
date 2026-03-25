@@ -23,9 +23,9 @@ const CV = ({ generalData, educationData, practicalData }) => {
             <p>{data.positionTitle} {data.startDate} {data.endDate && '-'} {data.endDate}</p>
             
             <ul>
-              {data.responsibilities && (
-                <li>{data.responsibilities}</li>
-              )}
+              {data.responsibilities[0].res && data.responsibilities.map((res) => (
+                <li key={res.id}>{res.res}</li>
+              ))}
             </ul>
           </div>
         ))}
