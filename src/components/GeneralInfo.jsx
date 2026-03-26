@@ -10,7 +10,7 @@ const GeneralInfo = ({ generalData, setGeneralData}) => {
     }
   return (
     <div>
-        <form onSubmit={handleSubmit} className='general'>
+        <form onSubmit={handleSubmit} className='form'>
             <h1>General Information</h1>
             <label htmlFor="f_name">First Name</label>
             <input

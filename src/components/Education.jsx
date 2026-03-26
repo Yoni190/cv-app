@@ -23,11 +23,11 @@ const Education = ({ educationData, setEducationData }) => {
 
   return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form'>
             <h1>Educational Experience</h1>
             <button onClick={addEducation}>Add Educational Experience</button>
             {educationData.map((data) => (
-                <div key={data.id}>
+                <div key={data.id} className='form'>
                     <label htmlFor="school">School Name</label>
                     <input
                         type="text"
