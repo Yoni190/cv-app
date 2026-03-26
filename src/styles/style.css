@@ -44,3 +44,7 @@ button:hover {
 .cv-container {
     padding: 10px;
 }
+
+.cv-general {
+    text-align: center;
+}

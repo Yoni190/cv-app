@@ -4,8 +4,10 @@ const CV = ({ generalData, educationData, practicalData }) => {
   return (
     <div className='cv-container'>
         <h1>CV</h1>
-        <h2>{generalData.firstName} {generalData.lastName}</h2>
-        <p>{generalData.email} {generalData.phone && '|'} {generalData.phone}</p>
+        <div className='cv-general'>
+          <h2>{generalData.firstName} {generalData.lastName}</h2>
+          <p>{generalData.email} {generalData.phone && '|'} {generalData.phone}</p>
+        </div>
 
 
         <h1>{educationData[0].schoolName && 'Education Experience'}</h1>
