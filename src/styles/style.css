@@ -1,6 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
 
 .general {
@@ -25,4 +26,8 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+.cv-container {
+    padding: 10px;
 }
