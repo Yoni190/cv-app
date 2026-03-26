@@ -45,11 +45,13 @@ const Practical = ({ practicalData, setPracticalData }) => {
     };
   return (
     <div>
-        <form onSubmit={handleSubmit}>
-            <h1>Practical Experience</h1>
-            <button onClick={addPractical}>Add Practical Experience</button>
+        <form onSubmit={handleSubmit} className='form'>
+            <div className='practical-header'>
+                <h1>Practical Experience</h1>
+                <button onClick={addPractical}>Add Practical Experience</button>
+            </div>
             {practicalData.map((data) => (
-                <div key={data.id}>
+                <div key={data.id} className='form'>
                     <label htmlFor="company-name">Company Name</label>
                     <input
                         type="text"

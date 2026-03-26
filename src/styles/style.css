@@ -4,8 +4,21 @@
     gap: 10px;
 }
 
-.form {
+.practical-header, .form {
     display: flex;
+}
+
+.practical-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.practical-header button {
+    max-height: 3rem;
+    padding: 8px;
+}
+
+.form {
     flex-direction: column;
     gap: 5px;
 }
