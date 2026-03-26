@@ -2,3 +2,27 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.general {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 5px;
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    border-radius: 7px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
