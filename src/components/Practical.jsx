@@ -43,6 +43,12 @@ const Practical = ({ practicalData, setPracticalData }) => {
             })
         );
     };
+
+    const removePractical = (index) => {
+        const temp = [...practicalData]
+        temp.splice(index, 1)
+        setPracticalData(temp)
+    }
   return (
     <div>
         <form onSubmit={handleSubmit} className='form'>
@@ -50,7 +56,7 @@ const Practical = ({ practicalData, setPracticalData }) => {
                 <h1>Practical Experience</h1>
                 <button onClick={addPractical}>Add Practical Experience</button>
             </div>
-            {practicalData.map((data) => (
+            {practicalData.map((data, index) => (
                 <div key={data.id} className='form'>
                     <label htmlFor="company-name">Company Name</label>
                     <input
@@ -116,6 +122,7 @@ const Practical = ({ practicalData, setPracticalData }) => {
                         value={data.endDate}
                         onChange={(e) => setPracticalData(practicalData.map(prData => { return prData.id === data.id ? {...prData, endDate: e.target.value} : prData }))}
                         required/>
+                    {practicalData.length > 1 && <button type='button' onClick={() => removePractical(index)}>Remove Professional Experience</button>}
                 </div>
             ))}
             
