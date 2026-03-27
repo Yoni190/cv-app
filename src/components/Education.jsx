@@ -21,12 +21,18 @@ const Education = ({ educationData, setEducationData }) => {
         ])
     }
 
+    const removeEducation = (index) => {
+        const temp = [...educationData]
+        temp.splice(index, 1)
+        setEducationData(temp)
+    }
+
   return (
     <div>
         <form onSubmit={handleSubmit} className='form'>
             <h1>Educational Experience</h1>
             <button onClick={addEducation}>Add Educational Experience</button>
-            {educationData.map((data) => (
+            {educationData.map((data, index) => (
                 <div key={data.id} className='form'>
                     <label htmlFor="school">School Name</label>
                     <input
@@ -63,6 +69,7 @@ const Education = ({ educationData, setEducationData }) => {
                                 value={data.endDate}
                                 onChange={(e) => setEducationData(educationData.map(edData => { return edData.id === data.id ? {...edData, endDate: e.target.value} : edData }))}
                                 required />
+                            {educationData.length > 1 && <button type='button' onClick={() => removeEducation(index)}>Remove Education</button>}
                 </div>
             ))}
             
