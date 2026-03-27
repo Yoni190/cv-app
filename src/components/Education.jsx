@@ -72,12 +72,6 @@ const Education = ({ educationData, setEducationData }) => {
                             {educationData.length > 1 && <button type='button' onClick={() => removeEducation(index)}>Remove Education</button>}
                 </div>
             ))}
-            
-            
-            
-
-            
-            <button type='submit'>Submit</button>
         </form>
 
 

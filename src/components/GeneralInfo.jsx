@@ -51,8 +51,6 @@ const GeneralInfo = ({ generalData, setGeneralData}) => {
                 onChange={(e) => setGeneralData({...generalData, phone: e.target.value})}
                 placeholder='0987654321'
                 required/>
-
-            <button type='submit'>Submit</button>
         </form>
     </div>
   )

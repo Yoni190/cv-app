@@ -132,17 +132,6 @@ const Practical = ({ practicalData, setPracticalData }) => {
                     {practicalData.length > 1 && <button type='button' onClick={() => removePractical(index)}>Remove Professional Experience</button>}
                 </div>
             ))}
-            
-
-            
-
-            
-
-            
-
-            
-
-            <button type='submit'>Submit</button>
         </form>
     </div>
   )
