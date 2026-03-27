@@ -49,6 +49,12 @@ const Practical = ({ practicalData, setPracticalData }) => {
         temp.splice(index, 1)
         setPracticalData(temp)
     }
+
+    const removeResponsibility = (index, resIndex) => {
+        const temp = [...practicalData]
+        temp[index].responsibilities.splice(resIndex, 1)
+        setPracticalData(temp)
+    }
   return (
     <div>
         <form onSubmit={handleSubmit} className='form'>
@@ -78,31 +84,32 @@ const Practical = ({ practicalData, setPracticalData }) => {
 
                     <label htmlFor="responsibilities">Main Responsibilities</label>
                     <button onClick={() => addResponsibility(data.id)}>Add Responsibility</button>
-                        {data.responsibilities.map(res => (
-                        <input
-                            type="text"
-                            name="responsibilities"
-                            id="responsibilities"
-                            key={res.id}
-                            value={res.res}
-                            required
-
-                            onChange={(e) =>
-                                setPracticalData(practicalData.map(prData => {
-                                    if (prData.id === data.id) {
-                                        return {
-                                            ...prData,
-                                            responsibilities: prData.responsibilities.map(r =>
-                                                r.id === res.id
-                                                    ? { ...r, res: e.target.value }
-                                                    : r
-                                            )
-                                        };
-                                    }
-                                    return prData;
-                                }))
-                            }
-                        />
+                        {data.responsibilities.map((res, resIndex) => (
+                        <div key={res.id}>
+                            <input
+                                type="text"
+                                name="responsibilities"
+                                id="responsibilities"
+                                value={res.res}
+                                required
+                                onChange={(e) =>
+                                    setPracticalData(practicalData.map(prData => {
+                                        if (prData.id === data.id) {
+                                            return {
+                                                ...prData,
+                                                responsibilities: prData.responsibilities.map(r =>
+                                                    r.id === res.id
+                                                        ? { ...r, res: e.target.value }
+                                                        : r
+                                                )
+                                            };
+                                        }
+                                        return prData;
+                                    }))
+                                }
+                            />
+                            {data.responsibilities.length > 1 && <button type='button' onClick={() => removeResponsibility(index, resIndex)}>Remove Responsibility</button>}
+                        </div>
                     ))}
 
                     <label htmlFor="start-date">Start Date</label>
